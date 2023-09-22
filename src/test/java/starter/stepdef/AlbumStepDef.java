@@ -20,16 +20,19 @@ public class AlbumStepDef {
     // Scenario get list
     @Given("Get list album with valid parameter page {int}")
     public void getListAlbumWithValidParameterPage(int page) {
+
         featuresAlbumsAPI.getListAlbum(page);
     }
 
     @When("Send request get list albums")
     public void sendRequestGetListAlbums() {
+
         SerenityRest.when().get(FeaturesAlbumsAPI.GET_LIST_ALBUM);
     }
 
     @Then("Status code should be {int} OK")
     public void statusCodeShouldBeOK(int ok) {
+
         SerenityRest.then().statusCode(ok);
     }
 
@@ -37,6 +40,7 @@ public class AlbumStepDef {
     //Scenario get single album
     @Given("Get single album with valid id {int}")
     public void getSingleAlbumWithValidId(int id) {
+
         featuresAlbumsAPI.getSingleAlbum(id);
     }
 
@@ -92,10 +96,12 @@ public class AlbumStepDef {
 
     @When("Send request post create album")
     public void sendRequestPostCreateAlbum() {
+
         SerenityRest.when().post(FeaturesAlbumsAPI.POST_CREATE_ALBUM);
     }
     @Then("Status code post create album should be {int} Created")
     public void statusCodePostCreateAlbumShouldBeCreated(int created) {
+
         SerenityRest.then().statusCode(created);
     }
 
@@ -109,11 +115,13 @@ public class AlbumStepDef {
 
     @When("Send request post create album invalid")
     public void sendRequestPostCreateAlbumInvalid() {
+
         SerenityRest.when().post(FeaturesAlbumsAPI.POST_INVALID_ALBUM);
     }
 
     @Then("Status code post create album should be {int} Not Found")
     public void statusCodePostCreateAlbumShouldBeNotFound(int NotFound) {
+
         SerenityRest.then().statusCode(NotFound);
     }
 
@@ -131,6 +139,7 @@ public class AlbumStepDef {
 
     @Then("Status code put update should be {int} OK")
     public void statusCodePutUpdateShouldBeOK(int ok) {
+
         SerenityRest.then().statusCode(ok);
     }
 
@@ -152,11 +161,13 @@ public class AlbumStepDef {
 
     @When("Send request put invalid album")
     public void sendRequestPutInvalidAlbum() {
+
         SerenityRest.when().put(FeaturesAlbumsAPI.PUT_INVALID);
     }
 
     @Then("Status code put invalid should be {int} Not Found")
     public void statusCodePutInvalidShouldBeNotFound(int NotFound) {
+
         SerenityRest.then().statusCode(NotFound);
     }
 
@@ -202,6 +213,11 @@ public class AlbumStepDef {
     }
 
     //Scenario delete
+    @Given("Delete a album with valid id {}")
+    public void deleteAAlbumWithValidId(int id) {
+        featuresAlbumsAPI.deleteAlbum(id);
+    }
+
     @When("Send request delete album")
     public void sendRequestDeleteAlbum() {
 
@@ -210,13 +226,10 @@ public class AlbumStepDef {
 
     @Then("Status code should be {int} ok")
     public void statusCodeShouldBeNoContent(int ok) {
+
         SerenityRest.then().statusCode(ok);
     }
 
-    @Given("Delete a album with valid id {}")
-    public void deleteAAlbumWithValidId(int id) {
-        featuresAlbumsAPI.deleteAlbum(id);
-    }
 
 
 }
