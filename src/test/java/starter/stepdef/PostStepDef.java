@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.resources.FeaturesPostAPI;
@@ -149,5 +150,13 @@ public class PostStepDef {
     @When("Send Request delete post")
     public void sendRequestDeletePost() {
         SerenityRest.when().delete(featuresPostAPI.DELETE_POST);
+    }
+
+    @And("Validate update post User JSON Schema {string}")
+    public void validateUpdatePostUserJSONSchema(String jsonFile) {
+        File json = new File(Constants.JSON_SCHEMA+jsonFile);
+        SerenityRest.and()
+                .assertThat()
+                .body(JsonSchemaValidator.matchesJsonSchema(json));
     }
 }

@@ -77,7 +77,7 @@ Scenario Outline: Put Post with empty id and valid json
   Given Patch post with valid json "patchValidPost.json" and valid id 1
   When Send Request Patch Post
   Then Status code should be 200 ok
-  And Response body userId should be 1
+  And Validate update post User JSON Schema "PostPatchJsonSchema.json"
 #  NEGATIVE
   Scenario: Patch post with invalid json
     Given Patch post with invalid json "patchInvalidPost.json" and valid id 1

@@ -16,7 +16,7 @@ public class FeaturesPostAPI {
     public static String GET_POST_WITH_USERID =Constants.BASE_URL+"/posts?userId={id}";
     public static String POST_WITH_JSON = Constants.BASE_URL+"/posts";
     public static String PUT_POST = Constants.BASE_URL+"/posts/{id}";
-    public static String PATCH_POST = Constants.BASE_URL+"posts/{id}";
+    public static String PATCH_POST = Constants.BASE_URL+"/posts/{id}";
     public static String DELETE_POST = Constants.BASE_URL+"/posts/{id}";
 
 
