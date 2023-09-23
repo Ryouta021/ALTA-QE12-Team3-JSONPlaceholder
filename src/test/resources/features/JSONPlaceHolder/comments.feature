@@ -1,5 +1,5 @@
 Feature: Comments
-  @Comments
+  @Tim3 @Comments
   Scenario: Get all of comments
     Given Get all comments
     When Send request get list comments
